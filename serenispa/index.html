@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SereniSpa</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body id="top">
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="#top" class="logo" aria-label="SereniSpa - Accueil">
+      <img src="/assets/sereni.png" alt="Logo SereniSpa">
+    </a>
+
+    <button 
+      class="nav-toggle" 
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="#services">Massages</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" role="banner">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>SereniSpa</h1>
+    <p>
+      Un spa éthique et digital, pensé pour votre bien-être et celui de la planète.
+    </p>
+    <a href="#services" class="btn">Voir nos massages</a>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <h2>Nos Massages</h2>
+
+  <div class="cards-container">
+    <article class="card">
+      <img src="/assets/Massage Relaxant_Libérez votre stress avec notre massage.jpg" alt="Massage relaxant">
+      <h3>Massage relaxant</h3>
+      <p>Libérez votre stress et détendez-vous pleinement.</p>
+    </article>
+
+    <article class="card">
+      <img src="/assets/Deep muscle recovery for athletes of all levels..jpg" alt="Massage sportif">
+      <h3>Massage sportif</h3>
+      <p>Détente musculaire après l'effort physique.</p>
+    </article>
+
+    <article class="card">
+      <img src="/assets/Hot Stone Massage_Hot Stones_Harmonize your energies with the natural warmth of volcanic stones..jpg" alt="Massage aux pierres chaudes">
+      <h3>Pierres chaudes</h3>
+      <p>Relaxation profonde par la chaleur naturelle.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PRODUITS ================= -->
+<section id="produits">
+  <h2>Nos Produits</h2>
+
+  <div class="card-container">
+    <article class="card">
+      <img src="/assets/oil.jpeg.jpg" alt="Huile bio naturelle">
+      <h3>Huile Bio</h3>
+      <p>100% naturelle, idéale pour les soins de la peau.</p>
+    </article>
+
+    <article class="card">
+      <img src="/assets/Moisturizing Cream.jpeg.jpg" alt="Crème hydratante">
+      <h3>Crème Hydratante</h3>
+      <p>Hydratation intense sans effet gras.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= ÉQUIPE ================= -->
+<section id="equipe">
+  <h2>Notre Équipe</h2>
+
+  <div class="card-container">
+    <article class="card">
+      <img src="/assets/ana.jpeg.jpg" alt="Ana - Massothérapeute">
+      <h3>Ana</h3>
+      <p>Spécialiste en massage relaxant.</p>
+    </article>
+
+    <article class="card">
+      <img src="/assets/leo.jpeg.jpg" alt="Léo - Thérapeute sportif">
+      <h3>Léo</h3>
+      <p>Expert en récupération sportive.</p>
+    </article>
+
+    <article class="card">
+      <img src="/assets/julie.jpeg.jpg" alt="Julie - Aromathérapie">
+      <h3>Julie</h3>
+      <p>Soins énergétiques et aromathérapie.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= AVIS ================= -->
+<section id="avis" class="avis">
+  <h2>Ce que disent nos clients</h2>
+
+  <div class="avis-wrapper">
+    <div class="carousel-track">
+      <div class="testimonial">
+        <p>“Un moment magique. Je recommande à 100%.”</p>
+        <span>— Claire</span>
+      </div>
+
+      <div class="testimonial">
+        <p>“Ambiance calme et équipe très professionnelle.”</p>
+        <span>— Jean</span>
+      </div>
+
+      <div class="testimonial">
+        <p>“Service parfait du début à la fin.”</p>
+        <span>— Louise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <h2>Contactez-nous</h2>
+
+  <form method="post" action="save-contact.php">
+    <label for="name">Nom</label>
+    <input id="name" name="name" type="text" required>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      maxlength="300"
+      required
+    ></textarea>
+
+    <p id="charCount">300 caractères restants</p>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-grid">
+    <ul>
+      <li><a href="#services">Massages</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Localisation</a>
+    </div>
+
+    <div class="legal">
+      <p>© 2025 SereniSpa. Tous droits réservés.</p>
+      <p>
+        <a href="#">Politique de confidentialité</a> |
+        <a href="#">Cookies</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="/script.js"></script>
+
+
+</body>
+</html>

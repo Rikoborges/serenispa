@@ -1,0 +1,87 @@
+CREATE DATABASE serenispa;
+
+CREATE TABLE contacts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  message TEXT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE massages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  description TEXT,
+  duree INT NOT NULL, -- durée en minutes
+  prix DECIMAL(6,2) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE clients (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  telephone VARCHAR(20),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE clients  
+ADD  unique (email);
+
+CREATE TABLE reservations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  client_id INT NOT NULL,
+  massage_id INT NOT NULL,
+  date_reservation DATETIME NOT NULL,
+  statut ENUM('en_attente', 'confirmée', 'annulée') DEFAULT 'en_attente',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (client_id) REFERENCES clients(id)
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (massage_id) REFERENCES massages(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE admins (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  description TEXT,
+  prix DECIMAL(10,2) NOT NULL,
+  image VARCHAR(255),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+INSERT INTO products (nom, description, prix, image) VALUES
+('Huile Relaxante', 'Huile naturelle pour massage relaxant', 29.90, 'huile.jpg'),
+('Crème Hydratante', 'Crème nourrissante pour la peau', 19.90, 'creme.jpg'),
+('Bougie Parfumée', 'Bougie aromatique pour relaxation', 14.90, 'bougie.jpg');
+
+CREATE TABLE membres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) UNIQUE,
+    password VARCHAR(255)
+);
+
+INSERT INTO admins (username, password)
+VALUES (
+  'admin',
+  '$2y$10$UUmVsa0FyMrsoj/uH7ZH0e8f5vfCUe7ZSJDIrlJ/hjLgPvPTO2VM2'
+);
+
+SELECT id, username, password, created_at FROM admins;
+
+SELECT * FROM admins;
+
+
+
+$2y$10$UUmVsa0FyMrsoj/uH7ZH0e8f5vfCUe7ZSJDIrlJ/hjLgPvPTO2VM2

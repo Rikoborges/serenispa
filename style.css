@@ -1,0 +1,399 @@
+/* =========================
+   VARIABLES (CORES)
+========================= */
+:root {
+  --green-dark: #24332a;
+  --green-main: #4f6b5a;
+  --green-soft: #8fa89a;
+
+  --accent: #c79a63;
+  --accent-dark: #a67945;
+
+  --bg-light: #f7f5f2;
+  --white: #ffffff;
+  --dark: #1e1e1e;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --transition: 0.3s ease;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg-light);
+  color: var(--dark);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+header {
+  background: var(--green-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  background: var(--white);
+  padding: 0.4rem 0.6rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.logo img {
+  max-height: 45px;
+}
+
+/* LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* MENU BURGER */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  background: linear-gradient(180deg, var(--green-main), var(--bg-light));
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+}
+
+.hero-content {
+  max-width: 650px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.hero .btn:hover {
+  background: var(--accent-dark);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--green-dark);
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards-container,
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  margin-top: 1rem;
+  color: var(--green-dark);
+}
+
+.card p {
+  color: #444;
+}
+
+/* =========================
+   AVIS / CAROUSEL
+========================= */
+/* =========================
+   AVIS / TESTIMONIALS
+========================= */
+
+.avis {
+  background: #4f6b5a;
+  padding: 4rem 1rem;
+  overflow: hidden;
+}
+
+.avis h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #1f2a24;
+}
+
+.avis-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: avis-scroll 25s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonial {
+  background: #ffffff;
+  min-width: 320px;
+  max-width: 320px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  color: #2b2b2b;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.testimonial span {
+  font-weight: 600;
+  color: #5c7a67;
+}
+
+/* Animation infinie */
+@keyframes avis-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background: var(--green-main);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: var(--green-dark);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: var(--green-dark);
+  color: white;
+  padding: 3rem 1.5rem;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-grid a {
+  color: white;
+  font-weight: 600;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-300%); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--green-dark);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 1.5rem 0;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
