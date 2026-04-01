@@ -44,28 +44,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (track) {
     let position = 0;
     const speed = 0.4; // velocidade suave
+    let isPaused = false; // flag de pausa (hover ou aba inativa)
 
     function moveCarousel() {
-      position -= speed;
+      if (!isPaused) {
+        position -= speed;
 
-      if (Math.abs(position) >= track.scrollWidth / 2) {
-        position = 0;
+        if (Math.abs(position) >= track.scrollWidth / 2) {
+          position = 0;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
       }
-
-      track.style.transform = `translateX(${position}px)`;
       requestAnimationFrame(moveCarousel);
     }
 
     // Duplica os avis para loop infinito
     track.innerHTML += track.innerHTML;
 
-    // Pause no hover
-    track.addEventListener("mouseenter", () => {
-      track.style.animationPlayState = "paused";
-    });
+    // Pause no hover (corrigido: usa flag em vez de animationPlayState)
+    track.addEventListener("mouseenter", () => { isPaused = true; });
+    track.addEventListener("mouseleave", () => { isPaused = false; });
 
-    track.addEventListener("mouseleave", () => {
-      track.style.animationPlayState = "running";
+    // Pausa quando a aba não está visível (poupa CPU/bateria)
+    document.addEventListener("visibilitychange", () => {
+      isPaused = document.hidden;
     });
 
     moveCarousel();
