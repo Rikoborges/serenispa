@@ -144,7 +144,7 @@ nav {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem); /* tipografia fluida: escala suave entre telas */
   color: white;
   margin-bottom: 1rem;
 }
@@ -233,7 +233,7 @@ h2 {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 3rem;
-  color: #1f2a24;
+  color: var(--white); /* corrigido: #1f2a24 sobre #4f6b5a falhava WCAG AA (ratio ~2.9:1) */
 }
 
 .avis-wrapper {
@@ -247,6 +247,7 @@ h2 {
   gap: 2rem;
   width: max-content;
   animation: avis-scroll 25s linear infinite;
+  will-change: transform; /* dica ao browser para usar GPU no scroll */
 }
 
 .carousel-track:hover {
@@ -369,7 +370,18 @@ footer {
 }
 
 /* =========================
-   RESPONSIVE
+   FOOTER DESKTOP
+========================= */
+@media (min-width: 769px) {
+  .footer-grid {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+
+/* =========================
+   RESPONSIVE — Tablet e Mobile
 ========================= */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -395,5 +407,28 @@ footer {
 
   .hero h1 {
     font-size: 2.2rem;
+  }
+}
+
+/* =========================
+   RESPONSIVE — Pequenos ecrãs (<480px)
+========================= */
+@media (max-width: 480px) {
+  section {
+    padding: 2.5rem 1rem; /* reduz padding lateral em telemóveis pequenos */
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .testimonial {
+    min-width: 260px;
+    max-width: 260px; /* cards de testimonial mais estreitos em ecrãs pequenos */
+  }
+
+  .cards-container,
+  .card-container {
+    grid-template-columns: 1fr; /* 1 coluna garantida em telemóveis pequenos */
   }
 }
